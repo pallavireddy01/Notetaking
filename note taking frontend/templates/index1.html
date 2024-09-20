@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration Form</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #background {
+            position: fixed;
+            top: 0;
+            padding: 0;
+            left: 0;
+            width:100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .container {
+            display: flex;
+            text-align: center;  
+            height: 100vh;
+        }
+        
+        nav {
+            background-color: #010205;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            overflow: hidden;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        nav a:hover{
+            background-color: aliceblue;
+            color: #010205;
+        }
+
+        form {
+            display: ruby-base;
+            text-align: left;
+            padding: 20px;
+            border: 2px solid #999191;
+            box-shadow: whitesmoke;
+            margin-top: 20px;
+            background-color:rgb(217, 225, 226);
+
+        }
+
+        form{
+            width: 300px;
+            height: 300px;
+        }
+
+        .form-container{
+            background-color: rgb(168, 201, 197);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: none;
+            outline-style: double;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input {
+            
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #113971;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: rgb(0, 1, 0);
+            color:aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" id="signup-link">Signup</a>
+        <a href="#" id="login-link">Login</a>
+    </nav>
+    <div id="background">
+       <img src='https://marketplace.canva.com/EAFCytpuJ08/1/0/1600w/canva-green-wateroclor-leaf-linktree-background-0Mp0WYk6_8E.jpg' alt="NOTE" style="width: 100%;">
+
+    </div>
+        <form id="signup-form" action="/signupform" method="post" >
+            <h2>SIGN UP</h2>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required />
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <form id="login-form" style="display: none;" action="/loginform" method="post">
+            <h2>User Login</h2>
+            <label for="login-username">Username:</label>
+            <input type="text" id="login-username" name="username1" required>
+
+            <label for="login-password">Password:</label>
+            <input type="password" id="login-password" name="password1" required>
+
+            <button type="submit">Login</button>
+        </form>
+    <span style="color:red">{{err}}</span>
+    <span style="color:green">{{res}}</span>
+    <script>
+        document.getElementById('signup-link').addEventListener('click', function () {
+            document.getElementById('signup-form').style.display = 'block';
+            document.getElementById('login-form').style.display = 'none';
+        });
+
+        document.getElementById('login-link').addEventListener('click', function () {
+            document.getElementById('signup-form').style.display = 'none';
+            document.getElementById('login-form').style.display = 'block';
+        });
+    </script>
+
+</body>
+</html>
